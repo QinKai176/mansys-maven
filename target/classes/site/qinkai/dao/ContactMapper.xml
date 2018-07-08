@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="site.qinkai.dao.ContactMapper">
+  <resultMap id="BaseResultMap" type="site.qinkai.pojo.Contact">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="owner_id" jdbcType="INTEGER" property="owner_id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="gender" jdbcType="INTEGER" property="gender"/>
+    <result column="phone_num" jdbcType="VARCHAR" property="phone_num"/>
+    <result column="created_at" jdbcType="BIGINT" property="created_at"/>
+    <result column="updated_at" jdbcType="BIGINT" property="updated_at"/>
+    <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    <result column="status" jdbcType="INTEGER" property="status"/>
+  </resultMap>
+
+  <select id="selectContactList" parameterType="site.qinkai.pojo.Contact" resultMap="BaseResultMap">
+    select
+    id,owner_id,name,gender,phone_num,created_at,updated_at,remark,status
+    from contact
+    WHERE status >-1
+    <if test="owner_id != 0">
+      and owner_id = #{owner_id}
+    </if>
+    <if test="id != 0">
+      and id = #{id}
+    </if>
+    order by updated_at desc
+  </select>
+
+  <select id="selectContactById" parameterType="int" resultMap="BaseResultMap">
+    select
+    id, owner_id,name,gender,phone_num,created_at,updated_at,remark,status
+    from contact
+    where id = #{id} and status >-1
+  </select>
+
+  <insert id="insertContact" keyProperty="id" parameterType="site.qinkai.pojo.Contact"
+    useGeneratedKeys="true">
+    insert into contact (owner_id,name,gender,phone_num,created_at,updated_at,remark,status)
+    values (#{owner_id},#{name},
+    #{gender},#{phone_num},#{created_at},#{updated_at},#{remark},#{status})
+  </insert>
+
+  <update id="updateContact" parameterType="site.qinkai.pojo.Contact">
+    update contact set
+    name=#{name},gender=#{gender},phone_num=#{phone_num},updated_at=#{updated_at},remark=#{remark}
+    where id=#{id}
+  </update>
+
+  <delete id="deleteContactById" parameterType="int">
+    update contact set status = -1 where id=#{id}
+  </delete>
+
+</mapper>

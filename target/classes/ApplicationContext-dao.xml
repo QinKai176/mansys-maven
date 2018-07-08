@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+  <!-- 加载配置文件 -->
+  <context:property-placeholder location="classpath:db.properties"/>
+  <!-- 数据库连接池 -->
+  <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+    id="dataSource">
+    <property name="driverClassName" value="${jdbc.driver}"/>
+    <property name="url" value="${jdbc.url}"/>
+    <property name="username" value="${jdbc.username}"/>
+    <property name="password" value="${jdbc.password}"/>
+    <property name="maxActive" value="10"/>
+    <property name="maxIdle" value="5"/>
+  </bean>
+
+  <bean class="site.qinkai.controller.ContactController" id="contact"/>
+
+  <!-- mapper配置 -->
+  <!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
+  <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+    <!-- 数据库连接池 -->
+    <property name="dataSource" ref="dataSource"/>
+    <!-- 加载mybatis的全局配置文件 -->
+    <property name="configLocation" value="classpath:SqlMapConfig.xml"/>
+  </bean>
+
+  <!-- 配置Mapper扫描器 -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="site.qinkai.dao"/>
+  </bean>
+
+</beans>

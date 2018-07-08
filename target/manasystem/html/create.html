@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/index.css" rel="stylesheet">
+  <link href="../css/create.css" rel="stylesheet">
+  <title>添加联系人</title>
+</head>
+<body>
+<div class="nav">
+  <div class="container">
+    <ul class="pull-left">
+      <li><a href="#">Name</a></li>
+      <li><a href="#">Browse</a></li>
+    </ul>
+    <ul class="pull-right">
+      <li><a href="#">Sign Up</a></li>
+      <li><a id="logout">登出</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </div>
+</div>
+<h2>新建联系人</h2>
+<div class="content">
+  <p>用户:<input type="text" placeholder="请输入姓名" id="name"><span class="hintName"
+                                                               style="color:red;padding-left:20px;"></span>
+  </p>
+  <p>性别:<input type="radio" value="1" name="gender">男<input type="radio" value="2"
+                                                            name="gender">女<span
+      class="hintGender"></span></p>
+  <p>电话:<input type="text" id="phone_num"><span class="hintPhone_num"></span></p>
+  <p>备注:<input type="text" id="remark"/></p>
+  <p><input type="button" value="提交" id="submit"> <input type="button" value="重置"></p>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/create.js"></script>
+</body>
+</html>

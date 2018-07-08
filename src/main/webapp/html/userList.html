@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>通讯录管理</title>
+  <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/list.css" rel="stylesheet">
+</head>
+<body>
+<div class="nav">
+  <div class="container">
+    <ul class="pull-left">
+      <li><a href="#">Name</a></li>
+      <li><a href="#">Browse</a></li>
+    </ul>
+    <ul class="pull-right">
+      <li><a href="#">Sign Up</a></li>
+      <li><a id="logout">登出</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+    <a class="creatWord" href="../html/create.html">新建</a><img src="../images/create.png"></img>
+    <table id="table" class="table table-bordered table-hover table-responsive">
+      <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>联系方式</th>
+        <th>备注</th>
+        <th id="operation">操作</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../js/userList.js"></script>
+</body>
+</html>
