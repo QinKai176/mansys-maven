@@ -52,6 +52,7 @@ public class LoginController {
   @ResponseBody
   public void register(@RequestBody Map<String, String> map, HttpServletRequest request,
       HttpSession session) throws Exception {
+    System.out.println("here-------");
     request.setCharacterEncoding("utf-8");
     String username = null;
     String pwd = null;

@@ -18,5 +18,5 @@ function login() {
 }
 
 $('#register').click(function () {
-  location.href = "html/register.html";
+  location.href = "html/login/reg.html";
 });

@@ -37,10 +37,10 @@ $(document).ready(function () {
     }
   });
 
-  $('#submit').on('click', function () {
-    var name = $('#name').val();
-    var pwd = $(".pwd").eq(0).val();
-    var phone_num = $('#phone_num').val();
+  $('.lang-btn').on('click', function () {
+    var name = $('#tel').val();
+    var pwd = $("#passport").eq(0).val();
+    var phone_num = '000000';
     console.log(name + " " + pwd + " " + phone_num);
     $.ajax({
       type: "POST",
@@ -52,7 +52,7 @@ $(document).ready(function () {
         "phoneNum": phone_num
       }),
       success: function (data) {
-        location.href = '../html/login.html';
+        location.href = '../login/login.html';
       },
       error: function (data) {
         if (data.status == 400) {
