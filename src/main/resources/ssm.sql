@@ -3,7 +3,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50515
 Source Host           : localhost:3306
-Source Database       : ssm
+Source Database       : mansys
 Target Server Type    : MYSQL
 Target Server Version : 50515
 File Encoding         : 65001
@@ -44,8 +44,8 @@ INSERT INTO `contact` VALUES ('3', '1', '1', '1', '1', '1515235076551', '1515235
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL COMMENT '鐢ㄦ埛鍚嶇О',
-  `password` varchar(255) NOT NULL COMMENT '鐢熸棩',
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `phone_num` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
