@@ -1,6 +1,8 @@
 # mansys-maven
 1.The project path:
 http://149.28.29.71:8080/mansys/
+2.Jenkins Path:
+http://149.28.29.71:8080/jenkins
 
 2.Related Knowledge:
 a.java Spring, SpringMVC, MyBatis
