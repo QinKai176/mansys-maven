@@ -2,7 +2,6 @@ package site.qinkai.controller;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +25,7 @@ public class LoginController {
   @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
   @ResponseBody
   public AjaxJson login(@RequestBody Map<String, String> map, HttpServletRequest request,
-      HttpServletResponse response, HttpSession session) throws Exception {
+      HttpSession session) throws Exception {
     request.setCharacterEncoding("utf-8");
     String email = map.get(Constants.LOGIN_NAEM);
     String pwd = map.get(Constants.PWD);

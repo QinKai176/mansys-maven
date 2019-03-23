@@ -154,7 +154,7 @@ $(function () {
             ldata.code = code;
           }
           $.ajax({
-            url: '/login.do',
+            url: '/mansys/login.do',
             type: "POST",
             datatype: 'json',
             async: true,
@@ -163,7 +163,7 @@ $(function () {
             success: function (data) {
               data = JSON.parse(data);
               if (data.success) {
-                location.href = "/html/userList.html";
+                location.href = "/mansys/html/userList.html";
               } else {
                 alert(data.msg);
               }
@@ -184,7 +184,7 @@ $(function () {
         console.log(phone + " " + pcode);
         if (checkPhone(phone) && checkPass(pcode)) {
           $.ajax({
-            url: '/phoneLogin.do',
+            url: '/mansys/phoneLogin.do',
             contentType: "application/json", // 必须有
             type: "POST",
             async: true,
@@ -192,7 +192,7 @@ $(function () {
             success: function (data) {
               data = JSON.parse(data);
               if (data.success) {
-                location.href = "/html/userList.html";
+                location.href = "/mansys/html/userList.html";
               } else {
                 alert(data.msg);
               }
@@ -224,7 +224,7 @@ $(function () {
     if (checkPhone(phone)) {
 
       $.ajax({
-        url: '/getcode.do',
+        url: '/mansys/getcode.do',
         datatype: 'json',
         contentType: 'application/json',
         type: "POST",
@@ -260,5 +260,4 @@ $(function () {
       }, 1000);
     }
   });
-
 });

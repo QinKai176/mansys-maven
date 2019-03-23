@@ -4,7 +4,7 @@ $(document).ready(function () {
   var user;
   $.ajax({
     type: "GET",
-    url: "/user/current.do",
+    url: "/mansys/user/current.do",
     success: function (data) {
       user = JSON.parse(data);
       console.log(data);
@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: "GET",
-    url: '/contact.do?id=' + contactId,
+    url: '/mansys/contact.do?id=' + contactId,
     contentType: "application/json",
     success: function (data) {
       data = JSON.parse(data);

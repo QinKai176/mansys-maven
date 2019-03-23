@@ -10,7 +10,7 @@ $(document).ready(function () {
     ;
     $.ajax({
       type: "GET",
-      url: '/user/exist.do?username=' + name,
+      url: '/mansys/user/exist.do?username=' + name,
       contentType: "application/json", // 必须有
       success: function (data) {
         if (data != "") {
@@ -44,7 +44,7 @@ $(document).ready(function () {
     console.log(name + " " + pwd + " " + phone_num);
     $.ajax({
       type: "POST",
-      url: '/register.do',
+      url: '/mansys/register.do',
       contentType: "application/json", // 必须有
       data: JSON.stringify({
         "username": name,

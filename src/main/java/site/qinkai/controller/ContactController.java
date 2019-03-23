@@ -63,13 +63,12 @@ public class ContactController {
   // 修改联系人信息
   @RequestMapping(value = "contact/update", method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
   @ResponseBody
-  public Contact update(@RequestBody Map<String, String> map, HttpServletRequest request,
+  public Contact update(@RequestBody Map<String, Object> map, HttpServletRequest request,
       HttpServletResponse response) throws Exception {
     request.setCharacterEncoding("utf-8");
     int id = 0;
     int gender = 0;
     try {
-      System.out.println("here------");
       id = Integer.parseInt(map.get("id") == null ? "" : map.get("id").toString());
       gender = Integer.parseInt(map.get("gender") == null ? "" : map.get("gender").toString());
     } catch (Exception e) {

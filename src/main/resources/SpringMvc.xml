@@ -50,6 +50,7 @@
       <mvc:exclude-mapping path="/getcode.do"/>
       <mvc:exclude-mapping path="/phoneRegister.do"/>
       <mvc:exclude-mapping path="/html/html/login.html"/>
+      <mvc:exclude-mapping path="/contact/update.do"/>
       <bean class="site.qinkai.interceptor.LoginInterceptor"/>
     </mvc:interceptor>
   </mvc:interceptors>

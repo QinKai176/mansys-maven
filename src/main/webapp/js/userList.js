@@ -2,7 +2,7 @@ $(document).ready(function () {
   var user;
   $.ajax({
     type: "GET",
-    url: "/user/current.do",
+    url: "/mansys/user/current.do",
     success: function (data) {
       user = JSON.parse(data);
       console.log(data);
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
   $.ajax({
     type: 'GET',
-    url: '/contact.do?ownerId=' + user.id,
+    url: '/mansys/contact.do?ownerId=' + user.id,
     async: false,
     success: function (data) {
       data = JSON.parse(data);
@@ -78,7 +78,7 @@ $(document).ready(function () {
     },
     error: function (data) {
       if (data.status == 302) {
-        location.href = "/html/login.html";
+        location.href = "/mansys/html/login.html";
       }
     },
   });
@@ -90,7 +90,7 @@ $(document).on('click', '.delete', function () {
     let currentId = $(this).data('id');
     $.ajax({
       type: 'DELETE',
-      url: "/contact/delete.do?contactId=" + currentId,
+      url: "/mansys/contact/delete.do?contactId=" + currentId,
       success: function (data) {
         location.href = '../html/userList.html';
       }
@@ -113,9 +113,9 @@ $(document).on('click', '.find', function () {
 $(document).on('click', '#logout', function () {
   $.ajax({
     type: "GET", // 用post方式传输
-    url: '/logout.do', // 目标地址
+    url: '/mansys/logout.do', // 目标地址
     success: function (data) {
-      location.href = '/';
+      location.href = '/mansys';
     }
   });
 })

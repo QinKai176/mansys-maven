@@ -10,32 +10,35 @@ File Encoding         : 65001
 Date: 2018-01-06 18:38:34
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for `contact`
 -- ----------------------------
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `owner_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `gender` int(11) NOT NULL,
-  `phone_num` varchar(255) NOT NULL,
-  `created_at` bigint(20) NOT NULL,
-  `updated_at` bigint(20) NOT NULL,
-  `status` int(11) NOT NULL,
-  `remark` varchar(255) DEFAULT NULL,
+  `id`         INT(11)      NOT NULL AUTO_INCREMENT,
+  `owner_id`   INT(11)      NOT NULL,
+  `name`       VARCHAR(255) NOT NULL,
+  `gender`     INT(11)      NOT NULL,
+  `phone_num`  VARCHAR(255) NOT NULL,
+  `created_at` BIGINT(20)   NOT NULL,
+  `updated_at` BIGINT(20)   NOT NULL,
+  `status`     INT(11)      NOT NULL,
+  `remark`     VARCHAR(255)          DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_ID` (`owner_id`),
   CONSTRAINT `FK_ID` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+)
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 4
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Records of contact
 -- ----------------------------
-INSERT INTO `contact` VALUES ('1', '1', 'qinkai', '2', '11', '12345', '211', '1', null);
-INSERT INTO `contact` VALUES ('2', '3', 'qinkai', '2', '11', '123454', '4332', '0', null);
+INSERT INTO `contact` VALUES ('1', '1', 'qinkai', '2', '11', '12345', '211', '1', NULL);
+INSERT INTO `contact` VALUES ('2', '3', 'qinkai', '2', '11', '123454', '4332', '0', NULL);
 INSERT INTO `contact` VALUES ('3', '1', '1', '1', '1', '1515235076551', '1515235076551', '-1', '1');
 
 -- ----------------------------
@@ -43,12 +46,15 @@ INSERT INTO `contact` VALUES ('3', '1', '1', '1', '1', '1515235076551', '1515235
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `phone_num` varchar(255) NOT NULL,
+  `id`        INT(11)      NOT NULL AUTO_INCREMENT,
+  `username`  VARCHAR(255) NOT NULL,
+  `password`  VARCHAR(255) NOT NULL,
+  `phone_num` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+)
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 15
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Records of user

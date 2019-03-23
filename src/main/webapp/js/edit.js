@@ -1,10 +1,11 @@
 let contactId;
 $(document).ready(function () {
   contactId = getUrlParam("id");
+  console.log(contactId);
   // checked[i].checked = true
   $.ajax({
     type: "GET",
-    url: '/contact.do?id=' + contactId,
+    url: '/mansys/contact.do?id=' + contactId,
     contentType: "application/json",
     success: function (data) {
       data = JSON.parse(data);
@@ -29,7 +30,7 @@ $(document).ready(function () {
 $('#submit').on('click', function () {
   $.ajax({
     type: "PUT",
-    url: '/contact/update.do',
+    url: '/mansys/contact/update.do',
     contentType: "application/json", // 必须有
     data: JSON.stringify({
       "id": parseInt(contactId),
@@ -47,7 +48,7 @@ $('#submit').on('click', function () {
           + contactId
           + $('#name').val()
           + $("input[type='radio']:checked")
-          .val() + $('phone_num').val());
+          .val() + $('#phone_num').val());
       if (data.status == 400) {
         alert("wrong");
       }

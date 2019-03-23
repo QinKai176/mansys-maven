@@ -2,7 +2,7 @@ var user;
 $(document).ready(function () {
   $.ajax({
     type: "GET",
-    url: "/user/current.do",
+    url: "/mansys/user/current.do",
     success: function (data) {
       user = JSON.parse(data);
     },
@@ -26,7 +26,7 @@ $('#submit').on('click', function () {
 
   $.ajax({
     type: "POST",
-    url: "/contact/insert.do",
+    url: "/mansys/contact/insert.do",
     contentType: "application/json", // 必须有
     data: JSON.stringify({
       "name": name,
